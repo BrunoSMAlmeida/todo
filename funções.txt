@@ -1,0 +1,40 @@
+adicionarNovaTarefa():
+
+Esta função é chamada quando o botão de adicionar tarefa é clicado. 
+Ela cria um novo objeto representando uma tarefa com base no valor atual do input. 
+Esse objeto é então adicionado à lista de tarefas. 
+O campo "concluida" é definido como falso, indicando que a tarefa ainda não foi concluída. 
+Após a adição, o valor do input é redefinido para vazio e a função mostrarTarefas() é chamada para atualizar a exibição das tarefas na página.
+
+mostrarTarefas():
+
+Essa função percorre a lista de tarefas (minhaListaDeItens) e cria um elemento HTML para cada tarefa. 
+Cada tarefa é exibida em uma <li> (item de lista) que contém um ícone de conclusão, o texto da tarefa e um ícone para excluir a tarefa. 
+Dependendo do estado da tarefa (concluída ou não), a classe CSS "done" é adicionada para estilização. 
+O conteúdo HTML gerado é então inserido na <ul> (lista) com a classe "list-tasks". 
+Além disso, a lista de tarefas é armazenada no armazenamento local (localStorage) usando localStorage.setItem() para que as tarefas persistam entre sessões.
+
+concluirTarefa(posicao):
+
+Essa função é acionada quando o ícone de conclusão de uma tarefa é clicado. 
+Ela alterna o estado de conclusão da tarefa na posição posicao da lista minhaListaDeItens. 
+Em outras palavras, se a tarefa estava marcada como concluída, ela se tornará não concluída e vice-versa. 
+Após a atualização, a função mostrarTarefas() é chamada para refletir a mudança na exibição das tarefas.
+
+deletarItem(posicao):
+
+Esta função é chamada quando o ícone de lixo de uma tarefa é clicado. 
+Ela remove a tarefa na posição posicao da lista minhaListaDeItens usando o método splice(). 
+Após a remoção, a função mostrarTarefas() é chamada para atualizar a exibição das tarefas na página.
+
+recarregarTarefas():
+
+Essa função é chamada quando a página é carregada. 
+Ela recupera os dados das tarefas do armazenamento local (localStorage) e os converte de volta para a lista minhaListaDeItens usando JSON.parse(). 
+Isso permite que as tarefas previamente salvas sejam carregadas e exibidas corretamente. 
+Após a recuperação, a função mostrarTarefas() é chamada para exibir as tarefas recuperadas na página.
+
+button.addEventListener('click', adicionarNovaTarefa):
+
+Este trecho de código adiciona um ouvinte de eventos ao botão de adicionar tarefa. 
+Quando o botão é clicado, a função adicionarNovaTarefa() é chamada.
